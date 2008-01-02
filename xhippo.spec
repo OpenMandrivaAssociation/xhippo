@@ -11,6 +11,7 @@ Source1: %{name}-16x16.png.bz2
 Source2: %{name}-32x32.png.bz2
 Source3: %{name}-48x48.png.bz2
 Group: Sound 
+BuildRoot: %{_tmppath}/%{name}-buildroot
 License: GPL
 BuildRequires: libgtk+-devel 
 Url: http://www.gnu.org/software/xhippo/xhippo.html
