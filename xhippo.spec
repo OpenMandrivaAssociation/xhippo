@@ -1,6 +1,6 @@
 %define name xhippo
 %define version 3.3
-%define release %mkrel 4
+%define release %mkrel 5
 
 Name: %{name}
 Summary: A mp3 playlist frontend
@@ -12,7 +12,7 @@ Source2: %{name}-32x32.png.bz2
 Source3: %{name}-48x48.png.bz2
 Group: Sound 
 BuildRoot: %{_tmppath}/%{name}-buildroot
-License: GPL
+License: GPLv2+
 BuildRequires: libgtk+-devel 
 Url: http://www.gnu.org/software/xhippo/xhippo.html
 
@@ -20,19 +20,15 @@ Url: http://www.gnu.org/software/xhippo/xhippo.html
 Xhippo is a Mp3 playlist frontend.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
-
 %setup -q
 
 %build
-
-%configure 
-
+%configure2_5x
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}
 cp xhippo.config $RPM_BUILD_ROOT%{_sysconfdir}
 %find_lang %{name}
@@ -40,14 +36,14 @@ cp xhippo.config $RPM_BUILD_ROOT%{_sysconfdir}
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications
 cat > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
-Name=%{title}
+Name=GNU xhippo
 Comment=%{summary}
-Exec=%{_bindir}/%{name} 
+Exec=%{_bindir}/%{name}
 Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=GTK;Audio;X-MandrivaLinux-Multimedia-Audio;
+Categories=GTK;Audio;AudioVideo;Player;
 EOF
 
 #icons
@@ -64,7 +60,7 @@ bzcat %{SOURCE3} > $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
 %files -f %name.lang
 %defattr(-,root,root)
-%doc doc/*.* README ChangeLog AUTHORS BUGS COPYING NEWS README* TODO
+%doc doc/*.* ChangeLog AUTHORS BUGS COPYING NEWS README* TODO
 %config(noreplace) %{_sysconfdir}/xhippo.config
 %{_bindir}/xhippo
 %{_datadir}/applications/mandriva-%{name}.desktop
@@ -75,5 +71,3 @@ bzcat %{SOURCE3} > $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT 
-
-
