@@ -52,11 +52,15 @@ bzcat %{SOURCE1} > $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
 bzcat %{SOURCE2} > $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
 bzcat %{SOURCE3} > $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
+%if %mdkversion < 200900
 %post
 %{update_menus}
+%endif
  
+%if %mdkversion < 200900
 %postun
 %{clean_menus} 
+%endif
 
 %files -f %name.lang
 %defattr(-,root,root)
