@@ -1,6 +1,6 @@
 %define name xhippo
 %define version 3.3
-%define release %mkrel 5
+%define release %mkrel 7
 
 Name: %{name}
 Summary: A mp3 playlist frontend
