@@ -75,3 +75,43 @@ bzcat %{SOURCE3} > $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT 
+
+
+%changelog
+* Wed Sep 09 2009 Thierry Vignaud <tvignaud@mandriva.com> 3.3-9mdv2010.0
++ Revision: 435132
+- rebuild
+
+* Sun Aug 03 2008 Thierry Vignaud <tvignaud@mandriva.com> 3.3-8mdv2009.0
++ Revision: 262437
+- rebuild
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Thu Feb 07 2008 Funda Wang <fundawang@mandriva.org> 3.3-5mdv2008.1
++ Revision: 163380
+- fix menu entry
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Mon Dec 17 2007 Thierry Vignaud <tvignaud@mandriva.com> 3.3-4mdv2008.1
++ Revision: 130214
+- kill re-definition of %%buildroot on Pixel's request
+- kill desktop-file-validate's 'warning: key "Encoding" in group "Desktop Entry" is deprecated'
+
+
+* Mon Jan 08 2007 Crispin Boylan <crisb@mandriva.org> 3.3-4mdv2007.0
++ Revision: 105918
+- Bump because of weird upload error
+- Disable old GNOME build, XDG Menu
+- Import xhippo
+
+* Fri Jun 03 2005 Nicolas Lécureuil <neoclust@mandriva.org> 3.3-2mdk
+- Rebuild
+
+* Thu May 27 2004 Lenny Cartier <lenny@mandrakesoft.com> 3.3-1mdk
+- 3.3
+
