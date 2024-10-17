@@ -14,7 +14,7 @@ Group: Sound
 BuildRoot: %{_tmppath}/%{name}-buildroot
 License: GPLv2+
 BuildRequires: libgtk+-devel 
-Url: http://www.gnu.org/software/xhippo/xhippo.html
+Url: https://www.gnu.org/software/xhippo/xhippo.html
 
 %description
 Xhippo is a Mp3 playlist frontend.
